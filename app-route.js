@@ -255,6 +255,17 @@ Polymer({
   __resetProperties: function() {
     this._setActive(false);
     this._matched = null;
+
+    var change = {
+      data: {},
+      queryParams: {}
+    };
+
+    if (this.setProperties) {
+      this.setProperties(change);
+    } else {
+      this.__setMulti(change);
+    }
   },
 
   __tryToMatch: function() {
